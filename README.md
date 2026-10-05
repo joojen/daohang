@@ -32,6 +32,27 @@ daohang/
 └── README.md
 ```
 
+## 部署
+
+| 平台 | 仓库 / 地址 |
+| --- | --- |
+| CNB（Git） | https://cnb.cool/joojen/daohang |
+| GitHub（Git） | https://github.com/joojen/daohang |
+| Cloudflare Pages | https://daohang-2q5.pages.dev |
+
+本地已配置两个远端，一次推送即可同步到两边：
+
+```bash
+git push origin main     # CNB
+git push github main     # GitHub
+```
+
+手动部署到 Cloudflare Pages（需已登录 wrangler）：
+
+```bash
+npx wrangler pages deploy . --project-name daohang --branch main
+```
+
 ## 自定义内置数据
 
 编辑 `js/data.js`：
