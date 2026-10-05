@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>daohang · 导航</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">D</span>
+        <span class="brand-text">daohang</span>
+      </a>
+
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10 4a6 6 0 104 10.5l4.3 4.3 1.4-1.4-4.3-4.3A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z" />
+        </svg>
+        <input id="search" type="search" placeholder="搜索站点名称或描述…" autocomplete="off" />
+      </div>
+
+      <button id="add-btn" class="btn-primary" type="button">
+        <span class="plus">+</span> 添加导航
+      </button>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+    <nav class="tabs" id="tabs" aria-label="分类筛选"></nav>
+    <div id="board" class="board"></div>
+    <p id="empty" class="empty" hidden>没有匹配的站点，换个关键词试试。</p>
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; <span id="year"></span> daohang</span>
+    <button id="reset-btn" class="btn-ghost" type="button">恢复默认数据</button>
+  </footer>
+
+  <div class="modal-mask" id="modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <h2 id="modal-title">添加导航</h2>
+        <button class="modal-close" id="modal-close" type="button" aria-label="关闭">×</button>
+      </div>
+      <form id="add-form" class="modal-body" novalidate>
+        <label class="field">
+          <span>名称 <em>*</em></span>
+          <input name="title" type="text" placeholder="例如：DeepSeek" required />
+        </label>
+        <label class="field">
+          <span>网址 <em>*</em></span>
+          <input name="url" type="url" placeholder="https://example.com" required />
+        </label>
+        <label class="field">
+          <span>描述</span>
+          <input name="desc" type="text" placeholder="一句话说明（可选）" />
+        </label>
+        <label class="field">
+          <span>分类 <em>*</em></span>
+          <select name="category" id="category-select" required></select>
+        </label>
+        <label class="field" id="new-cat-field" hidden>
+          <span>新分类名称</span>
+          <input name="newCategory" type="text" placeholder="例如：设计素材" />
+        </label>
+        <p class="form-error" id="form-error" hidden></p>
+        <div class="modal-foot">
+          <button class="btn-ghost" type="button" id="cancel-btn">取消</button>
+          <button class="btn-primary" type="submit">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
