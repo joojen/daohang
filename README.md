@@ -47,7 +47,9 @@ git push origin main     # CNB
 git push github main     # GitHub
 ```
 
-手动部署到 Cloudflare Pages（需已登录 wrangler）：
+Cloudflare Pages 已绑定 GitHub 仓库 `joojen/daohang`（构建命令留空，输出目录 `./`），推送到 GitHub `main` 分支即自动部署，无需手动操作。
+
+也可手动部署（需已登录 wrangler）：
 
 ```bash
 npx wrangler pages deploy . --project-name daohang --branch main
