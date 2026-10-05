@@ -227,5 +227,21 @@ document.getElementById('reset-btn').addEventListener('click', () => {
 /* ---------- 初始化 ---------- */
 
 sites = sites.map((s) => (s.id ? s : Object.assign({}, s, { id: 's_' + Math.random().toString(36).slice(2) })));
+
+mergeDefaults();
+save();
+
+function mergeDefaults() {
+  const extraCats = categories.filter((c) => !DEFAULT_CATEGORIES.some((d) => d.id === c.id));
+  categories = DEFAULT_CATEGORIES.concat(extraCats);
+
+  const urls = new Set(sites.map((s) => s.url));
+  const missing = DEFAULT_SITES.filter((s) => !urls.has(s.url));
+  if (missing.length) {
+    sites = missing
+      .map((s) => Object.assign({}, s, { id: 's_' + Math.random().toString(36).slice(2) }))
+      .concat(sites);
+  }
+}
 document.getElementById('year').textContent = new Date().getFullYear();
 render();

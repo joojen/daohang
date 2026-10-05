@@ -1,10 +1,15 @@
 const DEFAULT_CATEGORIES = [
+  { id: 'mine', name: '我的网站', icon: '⭐' },
   { id: 'ai', name: '人工智能', icon: '🤖' },
   { id: 'finance', name: '财经资讯', icon: '📈' },
   { id: 'dev', name: '开发工具', icon: '🛠️' }
 ];
 
 const DEFAULT_SITES = [
+  // 我的网站
+  { title: 'JZhou个人网站', desc: 'joojen 的个人主页与作品', url: 'https://joojen.com', category: 'mine' },
+  { title: '兜兜爸投资备忘录', desc: '投资记录与思考笔记', url: 'https://ddbzhou.com', category: 'mine' },
+
   // 人工智能
   { title: 'DeepSeek', desc: '国产高性能大模型，免费开放', url: 'https://chat.deepseek.com', category: 'ai' },
   { title: '豆包', desc: '字节跳动 AI 助手', url: 'https://www.doubao.com', category: 'ai' },
